@@ -25,8 +25,7 @@ std::vector<std::pair<char,char>> getInput(std::string filename) {
     inputFile.open(filename);
     if (inputFile.is_open()) {
         char their,mine;
-        while (inputFile >> their ) { 
-            inputFile >> mine;
+        while (inputFile >> their >> mine) { 
             std::pair<char, char> tempPair = std::make_pair(their, mine);
             tempVec.push_back(tempPair);
         }
