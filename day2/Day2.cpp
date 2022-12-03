@@ -24,18 +24,11 @@ std::vector<std::pair<char,char>> getInput(std::string filename) {
     std::ifstream inputFile;
     inputFile.open(filename);
     if (inputFile.is_open()) {
-        char now,last;
-        bool eol = false;
-        while (inputFile >> now ) { // using getline so we can get the blank line.
-            if (!eol) {
-                last = now;
-                eol = true;
-            }
-            else {
-                std::pair<char, char> tempPair = std::make_pair(last, now);
-                eol = false;
-                tempVec.push_back(tempPair);
-            }
+        char their,mine;
+        while (inputFile >> their ) { 
+            inputFile >> mine;
+            std::pair<char, char> tempPair = std::make_pair(their, mine);
+            tempVec.push_back(tempPair);
         }
     }
     return tempVec;
@@ -159,7 +152,7 @@ int calcScorePart2(char theirMove, char myResult) {
     case 'y': // draw
         myScore += draw;
         myScore += getDrawing(theirPlay);
-    break;
+        break;
     case 'Z':
     case 'z': // win
         myScore += win;
