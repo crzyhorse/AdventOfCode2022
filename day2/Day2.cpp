@@ -41,43 +41,40 @@ std::vector<std::pair<char,char>> getInput(std::string filename) {
     return tempVec;
 }
 
+int getMove(char move) {
+    int score = 0;
+    switch (move)
+    {
+    case 'A':
+    case 'a':
+    case 'X':
+    case 'x':
+        score = rock;
+        break;
+    case 'B':
+    case 'b':
+    case 'Y':
+    case 'y':
+        score = paper;
+        break;
+    case 'C':
+    case 'c':
+    case 'Z':
+    case 'z':
+        score = scissors;
+        break;
+    }
+    return score;
+}
+
 int calcScore(char theirMove, char myMove) {
-    int theirScore, myScore;
-    switch (theirMove)
-    {
-        case 'A':
-        case 'a':
-            theirScore = rock;
-            break;
-        case 'B':
-        case 'b':
-            theirScore = paper;
-            break;
-        case 'C':
-        case 'c':
-            theirScore = scissors;
-            break;
-    }
-    switch (myMove)
-    {
-        case 'X':
-        case 'x':
-            myScore = rock;
-            break;
-        case 'Y':
-        case 'y':
-            myScore = paper;
-            break;
-        case 'Z':
-        case 'z':
-            myScore = scissors;
-            break;
-    }
     //  rock = 1
     //  paper = 2
     //  scissors = 3
     int myMod = 0;
     int theirMod = 0;
+    int myScore = getMove(myMove);
+    int theirScore = getMove(theirMove);
     switch (myScore + theirScore) {
         case 2: // rock + rock
             myScore += draw;
@@ -150,22 +147,7 @@ int getDrawing(int move) {
 
 int calcScorePart2(char theirMove, char myResult) {
     int myScore = 0;
-    int theirPlay = 0;
-    switch (theirMove)
-    {
-    case 'A':
-    case 'a':
-        theirPlay = rock;
-        break;
-    case 'B':
-    case 'b':
-        theirPlay = paper;
-        break;
-    case 'C':
-    case 'c':
-        theirPlay = scissors;
-        break;
-    }
+    int theirPlay = getMove(theirMove);
     switch (myResult)
     {
     case 'X': // lose
