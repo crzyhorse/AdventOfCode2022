@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <fstream>
-#include <utility>
 
 /// <summary>
 /// Function to get input from text file and calculate answers for part 1 and part2.
