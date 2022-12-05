@@ -37,9 +37,8 @@ std::vector<std::tuple<int, int, int>> getMoves(std::string filename) {
     std::vector<std::tuple<int, int, int>> moves;
     if (inputFile.is_open()) {
         std::string throwaway;
-        for (int x = 0; x < 10; x++) {
-            
-            std::getline(inputFile, throwaway);
+        for (int x = 0; x < 10; x++) { // first 10 lines are the starting stacks. just throw them away. Easier than figuring out how to seek to specific line.
+            std::getline(inputFile, throwaway); 
         }
         int num, to, from = 0;
         //move 2 from 2 to 7
