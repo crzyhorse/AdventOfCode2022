@@ -18,9 +18,9 @@ std::deque<char> * getStacks(std::string filename) {
         for (int x = 0; x < 8; x++) {
             std::getline(inputFile, line);
             int stacknum = 0;
-            for (int y = 2; y <= 34; y += 4) {
-                char ch = line[y-1];
-                if (ch != 32 && ch != '\0') {
+            for (int y = 2; y <= 34; y += 4) { // The letters that make up the labels of the boxes in the input text appear every four characters, starting at the second character.
+                char ch = line[y-1]; // index in visual studio text editor starts at 1, index in code starts at 0 so just subtract one. 
+                if (ch != 32) { // it's going to be a space if it's blank...ascii 32.
                     stacks[stacknum].push_back(ch);
                 }
                 stacknum++;
@@ -41,7 +41,6 @@ std::vector<std::tuple<int, int, int>> getMoves(std::string filename) {
             
             std::getline(inputFile, throwaway);
         }
-        
         int num, to, from = 0;
         //move 2 from 2 to 7
         while (inputFile >> throwaway >> num >> throwaway >> from >> throwaway >> to) {
