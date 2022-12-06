@@ -60,12 +60,10 @@ int getMove(char move) {
 }
 
 int calcScore(char theirMove, char myMove) {
-    //  rock = 1
-    //  paper = 2
-    //  scissors = 3
     int myScore = getMove(myMove);
     int theirScore = getMove(theirMove);
     switch (myScore + theirScore) {
+        //  rock = 1, paper = 2, scissors = 3
         case 2: // rock + rock
             myScore += draw;
             break;
@@ -73,7 +71,7 @@ int calcScore(char theirMove, char myMove) {
             myScore += myScore > theirScore ? win : lose; 
             break;
         case 4: // paper + paper or scissors + rock
-            if (myScore == theirScore) { //scissors + scissors
+            if (myScore == theirScore) { // paper + paper
                 myScore += draw;
             }
             else { // scissors + rock
