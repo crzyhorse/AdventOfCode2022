@@ -28,7 +28,7 @@ int getMarkerPos(std::string filename, int numUnique) {
                 }
             }
         }
-     }
+    }
 }
 
 int main()
