@@ -36,6 +36,6 @@ int main()
     int part1 = getMarkerPos("input.txt",4);
     std::cout << "The answer to Part 1 is " << part1 << std::endl;
     int part2 = getMarkerPos("input.txt", 14);
-    std::cout << "The answer to Part 1 is " << part2 << std::endl;
+    std::cout << "The answer to Part 2 is " << part2 << std::endl;
 }
 
